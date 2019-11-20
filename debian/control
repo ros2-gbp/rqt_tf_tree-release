@@ -1,0 +1,12 @@
+Source: ros-dashing-rqt-tf-tree
+Section: misc
+Priority: optional
+Maintainer: Isaac I.Y. Saito <gm130s@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), python3-mock, ros-dashing-ros-workspace, python3-all, python3-setuptools
+Homepage: http://wiki.ros.org/rqt_tf_tree
+Standards-Version: 3.9.2
+
+Package: ros-dashing-rqt-tf-tree
+Architecture: any
+Depends: ${python3:Depends}, ${misc:Depends}, python3-rospkg, ros-dashing-geometry-msgs, ros-dashing-python-qt-binding (>= 0.2.19), ros-dashing-qt-dotgraph, ros-dashing-rclpy, ros-dashing-rqt-graph, ros-dashing-rqt-gui, ros-dashing-rqt-gui-py, ros-dashing-tf2, ros-dashing-tf2-msgs, ros-dashing-tf2-ros, ros-dashing-ros-workspace
+Description: rqt_tf_tree provides a GUI plugin for visualizing the ROS TF frame tree.
