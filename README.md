@@ -1,3 +1,26 @@
+## rqt_tf_tree (humble) - 1.0.4-1
+
+The packages in the `rqt_tf_tree` repository were released into the `humble` distro by running `/home/arne/.local/bin/bloom-release --track humble --rosdistro humble rqt_tf_tree --edit` on `Thu, 25 Aug 2022 03:40:02 -0000`
+
+The `rqt_tf_tree` package was released.
+
+Version of package(s) in repository `rqt_tf_tree`:
+
+- upstream repository: https://github.com/ros-visualization/rqt_tf_tree.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.0.4-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.1`
+- catkin_pkg version: `0.5.2`
+- rosdep version: `0.22.1`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## rqt_tf_tree (galactic) - 1.0.3-1
 
 The packages in the `rqt_tf_tree` repository were released into the `galactic` distro by running `/usr/bin/bloom-release --track galactic --rosdistro galactic rqt_tf_tree` on `Fri, 12 Nov 2021 22:23:15 -0000`
