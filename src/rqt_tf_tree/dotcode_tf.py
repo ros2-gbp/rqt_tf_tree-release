@@ -34,6 +34,8 @@ import time
 import rclpy
 import yaml
 
+from rclpy import clock
+from rclpy.constants import S_TO_NS
 from tf2_msgs.srv import FrameGraph
 
 
@@ -94,7 +96,7 @@ class RosTfTreeDotcodeGenerator(object):
 
             yaml_data = tf2_frame_srv.call(FrameGraph.Request()).frame_yaml
             data = yaml_parser.safe_load(yaml_data)
-            self.graph = self.generate(data, timer.now().nanoseconds / rclpy.time.CONVERSION_CONSTANT)
+            self.graph = self.generate(data, timer.now().nanoseconds / S_TO_NS)
             self.dotcode = self.dotcode_factory.create_dot(self.graph)
 
         return self.dotcode
