@@ -33,10 +33,9 @@
 
 import unittest
 
-import tf2_ros
+import rclpy.client
 
-# get mock from pypi as 'mock'
-from mock import Mock, patch
+from unittest.mock import Mock
 
 from rqt_tf_tree.dotcode_tf import RosTfTreeDotcodeGenerator
 
@@ -44,39 +43,35 @@ from rqt_tf_tree.dotcode_tf import RosTfTreeDotcodeGenerator
 class DotcodeGeneratorTest(unittest.TestCase):
 
     def test_generate_dotcode(self):
-        with patch('tf2_ros.TransformListener') as tf:
-            def tf_srv_fun_mock():
-                return tf
+        yaml_data = {'frame1': {'parent': 'fr_parent',
+                                        'broadcaster': 'fr_broadcaster',
+                                        'rate': 'fr_rate',
+                                        'buffer_length': 'fr_buffer_length',
+                                        'most_recent_transform': 'fr_most_recent_transform',
+                                        'oldest_transform': 'fr_oldest_transform',}}
+        frameClientMock = Mock()
+        frameClientMock.call.return_value.frame_yaml = str(yaml_data)
 
-            yaml_data = {'frame1': {'parent': 'fr_parent',
-                                            'broadcaster': 'fr_broadcaster',
-                                            'rate': 'fr_rate',
-                                            'buffer_length': 'fr_buffer_length',
-                                            'most_recent_transform': 'fr_most_recent_transform',
-                                            'oldest_transform': 'fr_oldest_transform',}}
-            tf.frame_yaml = str(yaml_data)
+        factoryMock = Mock()
+        graphMock = Mock()
+        timerMock = Mock()
+        timerMock.now.return_value.nanoseconds = 42
 
-            factoryMock = Mock()
-            graphMock = Mock()
-            timeMock = Mock()
-            timerMock = Mock()
-            timerMock.now.return_value = timeMock
-            timeMock.to_sec.return_value = 42
+        yamlmock = Mock()
+        yamlmock.load.return_value = yaml_data
 
-            yamlmock = Mock()
-            yamlmock.load.return_value = yaml_data
+        factoryMock.create_dot.return_value = "foo"
+        factoryMock.get_graph.return_value = graphMock
 
-            factoryMock.create_dot.return_value = "foo"
-            factoryMock.get_graph.return_value = graphMock
+        gen = RosTfTreeDotcodeGenerator(0)
+        graph = gen.generate_dotcode(factoryMock, frameClientMock, timerMock)
 
-            gen = RosTfTreeDotcodeGenerator(0)
-            graph = gen.generate_dotcode(factoryMock, tf_srv_fun_mock, timerMock)
+        timerMock.now.assert_called_with()
+        factoryMock.create_dot.assert_called_with(graphMock)
 
-            timerMock.now.assert_called_with()
-            timeMock.to_sec.assert_called_with()
-            factoryMock.create_dot.assert_called_with(graphMock)
+        self.assertEqual(graph, 'foo')
 
-            self.assertEqual(graph, 'foo')
 
 if __name__ == '__main__':
     unittest.main()
+
