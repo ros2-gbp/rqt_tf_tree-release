@@ -1,3 +1,26 @@
+## rqt_tf_tree (kilted) - 1.0.6-2
+
+The packages in the `rqt_tf_tree` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --rosdistro kilted --track kilted rqt_tf_tree` on `Mon, 06 Apr 2026 15:10:58 -0000`
+
+The `rqt_tf_tree` package was released.
+
+Version of package(s) in repository `rqt_tf_tree`:
+
+- upstream repository: https://github.com/ros-visualization/rqt_tf_tree.git
+- release repository: https://github.com/ros2-gbp/rqt_tf_tree-release.git
+- rosdistro version: `1.0.5-2`
+- old version: `1.0.6-1`
+- new version: `1.0.6-2`
+
+Versions of tools used:
+
+- bloom version: `0.13.0`
+- catkin_pkg version: `1.1.0`
+- rosdep version: `0.26.0`
+- rosdistro version: `1.0.1`
+- vcstools version: `0.1.42`
+
+
 ## rqt_tf_tree (kilted) - 1.0.6-1
 
 The packages in the `rqt_tf_tree` repository were released into the `kilted` distro by running `/usr/bin/bloom-release --rosdistro kilted --track kilted rqt_tf_tree` on `Mon, 06 Apr 2026 15:01:19 -0000`
