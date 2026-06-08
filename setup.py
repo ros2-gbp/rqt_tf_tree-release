@@ -5,7 +5,7 @@ from setuptools import setup
 package_name = 'rqt_tf_tree'
 setup(
     name=package_name,
-    version='1.0.6',
+    version='1.1.0',
     package_dir={'': 'src'},
     packages=[package_name],
     data_files=[
@@ -23,7 +23,6 @@ setup(
     keywords=['ROS'],
     classifiers=[
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
         'Topic :: Software Development',
     ],
@@ -31,7 +30,11 @@ setup(
         'rqt_tf_tree provides a GUI plugin for visualizing the ROS TF frame tree.'
     ),
     license='BSD',
-    tests_require=['pytest'],
+    extras_require={
+        'test': [
+            'pytest',
+        ],
+    },
     entry_points={
         'console_scripts': [
             'rqt_tf_tree = ' + package_name + '.main:main'
