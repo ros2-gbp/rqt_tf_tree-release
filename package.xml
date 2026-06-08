@@ -1,6 +1,6 @@
 <package format="3">
   <name>rqt_tf_tree</name>
-  <version>1.0.6</version>
+  <version>1.1.0</version>
   <description>rqt_tf_tree provides a GUI plugin for visualizing the ROS TF frame tree.</description>
   <author>Thibault Kruse</author>
   <maintainer email="gm130s@gmail.com">Isaac I.Y. Saito</maintainer>
@@ -14,6 +14,8 @@
   <url type="repository">https://github.com/ros-visualization/rqt_tf_tree</url>
   <url type="bugtracker">https://github.com/ros-visualization/rqt_tf_tree/issues</url>
 
+  <test_depend>ament_flake8</test_depend>
+  <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
 
   <exec_depend version_gte="0.2.19">python_qt_binding</exec_depend>
