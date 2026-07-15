@@ -1,0 +1,12 @@
+Source: ros-lyrical-rqt-tf-tree
+Section: misc
+Priority: optional
+Maintainer: "Isaac I.Y. Saito" <gm130s@gmail.com>
+Build-Depends: debhelper (>= 9.0.0), python3-mock <!nocheck>, python3-pytest <!nocheck>, ros-lyrical-ament-flake8 <!nocheck>, ros-lyrical-ament-pep257 <!nocheck>, ros-lyrical-ros-workspace, python3-all, python3-setuptools, dh-python
+Homepage: http://wiki.ros.org/rqt_tf_tree
+Standards-Version: 3.9.2
+
+Package: ros-lyrical-rqt-tf-tree
+Architecture: any
+Depends: ${python3:Depends}, ${misc:Depends}, ros-lyrical-python-qt-binding (>= 0.2.19), ros-lyrical-qt-dotgraph, ros-lyrical-rclpy, ros-lyrical-rqt-graph, ros-lyrical-rqt-gui, ros-lyrical-rqt-gui-py, ros-lyrical-tf2-msgs, ros-lyrical-tf2-ros, ros-lyrical-tf2-ros-py, ros-lyrical-ros-workspace
+Description: rqt_tf_tree provides a GUI plugin for visualizing the ROS TF frame tree.
